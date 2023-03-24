@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">ClarityApp</string>
+    <string name="login">Login</string>
+    <string name="signup">Sign Up</string>
+    <string name="prompt_username">Username</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_up_short">Sign Up</string>
+    <string name="action_sign_up">Sign Up</string>
+    <string name="email">Email</string>
+    <string name="action_sign_in_short">Sign In</string>
+    <string name="action_sign_in">Sign In</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="profile">Profile</string>
+    <string name="task">Task</string>
+    <string name="calendar">Calendar</string>
+    <string name="mindset">Mindset</string>
+    <string name="schedule">Schedule</string>
+    <string name="deadlines">Deadlines</string>
+    <string name="settings">Settings</string>
+</resources>
