@@ -6,4 +6,5 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="transparentpink">#59FFC2D6</color>
+    <color name="grey">#E9E9E9</color>
 </resources>

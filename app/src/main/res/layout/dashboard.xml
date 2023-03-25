@@ -19,9 +19,9 @@
         android:layout_height="613dp"
         android:layout_below="@id/top_view"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="80dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="52dp"
         android:columnCount="2"
         android:rowCount="4"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -54,6 +54,7 @@
 
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/taskCard"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_row="0"
@@ -163,7 +164,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="50dp"
         android:gravity="center_vertical"
         android:text="@string/dashboard"
         android:textColor="@color/pink"
