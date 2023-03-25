@@ -1,11 +1,11 @@
 package com.student.clarityapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.TextView;
+import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -15,11 +15,13 @@ public class RegisterActivity extends AppCompatActivity {
         setContentView(R.layout.activity_register);
 
         TextView btn=findViewById(R.id.alreadyHaveAccount);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(RegisterActivity.this,LoginActivity.class));
-            };
+        btn.setOnClickListener(v -> startActivity(new Intent(RegisterActivity.this,LoginActivity.class)));
+
+        Button signupButton = findViewById(R.id.btnRegister);
+        signupButton.setOnClickListener(v -> {
+            Intent intent = new Intent(RegisterActivity.this, dashboard.class);
+            startActivity(intent);
+            finish();
         });
     }
 }
