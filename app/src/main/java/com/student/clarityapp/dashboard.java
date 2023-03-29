@@ -3,9 +3,9 @@ package com.student.clarityapp;
 import static com.student.clarityapp.R.id.taskCard;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.content.Intent;
 
 import androidx.cardview.widget.CardView;
 

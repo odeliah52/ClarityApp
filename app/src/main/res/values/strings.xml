@@ -19,4 +19,10 @@
     <string name="emotions">emotions</string>
     <string name="task_list">Task List</string>
     <string name="back">Back</string>
+    <string name="new_task">New Task</string>
+    <string name="what_are_you_planning">What are you planning?</string>
+    <string name="delete">Delete</string>
+    <string name="delete_task">Delete Task</string>
+    <string name="save">SAVE</string>
+    <string name="x">X</string>
 </resources>
