@@ -1,39 +1,44 @@
 package com.student.clarityapp;
 
-public class Task {
-    public String name;
-    private boolean isChecked;
+import com.google.firebase.firestore.DocumentId;
 
-    public Task(String name, boolean isChecked) {
-        this.name = name;
-        this.isChecked = isChecked;
+import java.io.Serializable;
+
+public class Task implements Serializable {
+
+    @DocumentId
+    private String taskId; // Use this to store the unique task ID
+
+    private String description;
+    private boolean isCompleted;
+
+    public Task() {
+        taskId = new TaskID().getId(); // Generate a new unique ID for each task
     }
 
-    public Task(String name) {
-        this.name = name;
-        this.isChecked = false;
+    public Task(String description) {
+        this.description = description;
+        this.isCompleted = false;
+        taskId = new TaskID().getId();
     }
 
-    public Task(CharSequence name) {
-        this.name = name.toString();
-        this.isChecked = false;
+    public String getTaskId() {
+        return taskId;
     }
 
-
-    public String getName() {
-        return name;
+    public String getDescription() {
+        return description;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public boolean isChecked() {
-        return isChecked;
+    public boolean isCompleted() {
+        return isCompleted;
     }
 
-    public void setChecked(boolean checked) {
-        isChecked = checked;
+    public void setCompleted(boolean completed) {
+        isCompleted = completed;
     }
-
 }

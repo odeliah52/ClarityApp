@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "803931409850",
+    "project_id": "clarity-6b7b9",
+    "storage_bucket": "clarity-6b7b9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:803931409850:android:53f429db2035d4ccee6183",
+        "android_client_info": {
+          "package_name": "com.student.clarityapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "803931409850-1gt35422j09oagtcaotprjjntbjsup8b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCcZNcBLolw0dzu4c3unkB-_ca7eqgvQI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "803931409850-1gt35422j09oagtcaotprjjntbjsup8b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

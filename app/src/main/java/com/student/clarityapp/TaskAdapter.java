@@ -3,20 +3,43 @@ package com.student.clarityapp;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CheckBox;
-import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentChange;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.QuerySnapshot;
+import java.util.ArrayList;
 import java.util.List;
 
-public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder> {
+public class TaskAdapter extends RecyclerView.Adapter<TaskViewHolder> {
 
-    private List<Task> taskList;
+    private List<Task> tasks = new ArrayList<>();
+    private CollectionReference tasksCollection = FirebaseFirestore.getInstance().collection("tasks");
 
-    public TaskAdapter(List<Task> taskList) {
-        this.taskList = taskList;
+    public TaskAdapter() {
+        tasksCollection.orderBy("Description").addSnapshotListener((QuerySnapshot snapshots, FirebaseFirestoreException e) -> {
+            if (e != null) {
+                // Handle the error
+                return;
+            }
+
+            for (DocumentChange dc : snapshots.getDocumentChanges()) {
+                switch (dc.getType()) {
+                    case ADDED:
+                        tasks.add(dc.getDocument().toObject(Task.class));
+                        notifyItemInserted(tasks.size() - 1);
+                        break;
+                    case MODIFIED:
+                        // Handle modifications if necessary
+                        break;
+                    case REMOVED:
+                        // Handle removals if necessary
+                        break;
+                }
+            }
+        });
     }
 
     @NonNull
@@ -28,35 +51,29 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull TaskViewHolder holder, int position) {
-        Task task = taskList.get(position);
-        holder.taskTitleTextView.setText(task.getName());
-        holder.taskCheckBox.setChecked(task.isChecked());
+        Task task = tasks.get(position);
+        holder.description.setText(task.getDescription());
+        // Other binding logic
     }
 
     @Override
     public int getItemCount() {
-        return taskList.size();
+        return tasks.size();
+    }
+
+    public List<Task> getTasks() {
+        return tasks;
     }
 
     public void addTask(Task task) {
-        taskList.add(task);
-        notifyItemInserted(taskList.size() - 1);
+        tasks.add(task);
+        notifyItemInserted(tasks.size() - 1);
     }
 
-    public List<Task> getTaskList() {
-        return taskList;
-    }
-
-    static class TaskViewHolder extends RecyclerView.ViewHolder {
-        TextView taskTitleTextView;
-        CheckBox taskCheckBox;
-
-        TaskViewHolder(@NonNull View itemView) {
-            super(itemView);
-            taskTitleTextView = itemView.findViewById(R.id.taskName);
-            taskCheckBox = itemView.findViewById(R.id.checkBtn);
+    public void deleteTask(int position) {
+        if (position >= 0 && position < tasks.size()) {
+            tasks.remove(position);
+            notifyItemRemoved(position);
         }
     }
 }
-
-

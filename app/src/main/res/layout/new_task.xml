@@ -4,18 +4,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:layout_height="match_parent">
+
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:elevation="0dp">
 
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="@drawable/bg_taskbar"
@@ -30,18 +28,16 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/btn_cancel"
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:background="@drawable/input_bg"
                     android:contentDescription="@string/delete"
-                    android:drawableLeft="@drawable/ic_close"
+                    android:drawableStart="@drawable/ic_close"
                     android:gravity="center|start" />
 
 
                 <TextView
-                    android:id="@+id/toolbar_title"
                     android:layout_width="264dp"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
@@ -96,7 +92,6 @@
                 android:contentDescription="@string/calendar" />
 
             <TextView
-                android:id="@+id/dateText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
@@ -143,7 +138,6 @@
             android:layout_alignParentBottom="true"
             android:layout_gravity="center"
             android:background="@drawable/bg_savebtn"
-            android:onClick="saveTask"
             android:paddingVertical="15dp"
             android:text="@string/save"
             android:textColor="#FF5D8FF4"

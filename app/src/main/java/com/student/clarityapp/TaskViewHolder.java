@@ -1,23 +1,18 @@
 package com.student.clarityapp;
-
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
-
 
 public class TaskViewHolder extends RecyclerView.ViewHolder {
 
-    public CardView cardView;
-    public TextView name;
+    public CheckBox checkBox;
+    public TextView description;
 
     public TaskViewHolder(@NonNull View itemView) {
         super(itemView);
-
-        cardView = itemView.findViewById(R.id.cardView);
-        name = itemView.findViewById(R.id.taskName);
+        checkBox = itemView.findViewById(R.id.checkBtn);
+        description = itemView.findViewById(R.id.taskName);
     }
 }
-

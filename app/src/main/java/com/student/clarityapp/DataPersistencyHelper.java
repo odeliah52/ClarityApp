@@ -1,8 +1,6 @@
 package com.student.clarityapp;
-
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -13,27 +11,25 @@ import java.util.List;
 
 public class DataPersistencyHelper {
 
+    private static final String FILE_NAME = "com.student.clarityapp.preferences";
+
     public static void storeData(Context context, List<Task> tasks) {
-        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences sp = context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
         String json = new Gson().toJson(tasks);
         editor.putString("tasks", json);
         editor.apply();
     }
+
     public static List<Task> loadData(Context context) {
-        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+        SharedPreferences sp = context.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
         String json = sp.getString("tasks", null);
         if (json != null) {
-            Type type = new TypeToken<List<Task>>() {}.getType();
+            Type type = new TypeToken<List<Task>>(){}.getType();
             return new Gson().fromJson(json, type);
         } else {
-            List<Task> tasks = new ArrayList<>();
-            tasks.add(new Task("Task 1"));
-            tasks.add(new Task("Task 2"));
-            tasks.add(new Task("Task 3"));
-            tasks.add(new Task("Task 4"));
-            tasks.add(new Task("Task 5"));
-            return tasks;
+            // Add default tasks here if you want, or leave it as an empty list.
+            return new ArrayList<>();
         }
     }
 }
